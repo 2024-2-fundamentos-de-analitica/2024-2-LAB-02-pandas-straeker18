@@ -4,7 +4,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
+import pandas as pd # type: ignore #ignore type
 
 def pregunta_09():
     """
@@ -23,3 +23,13 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    # Cargar el archivo tbl0.tsv
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    # Extraer el año de la columna 'c3' y guardarlo en una nueva columna 'year'
+    df["year"] = df["c3"].str[:4]
+
+    return df
+
+# Llamar la función y mostrar el resultado
+print(pregunta_09())
